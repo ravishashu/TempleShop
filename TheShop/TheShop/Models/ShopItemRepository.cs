@@ -14,10 +14,8 @@ namespace TheShop.Models
 
         public IEnumerable<ShopItem> ItemsOfTheWeek => _dbContext.ShopItems.Include(c => c.Category).Where(p=>p.IsItemOfTheWeek==true);
 
-        public ShopItem? GetItemById(int ItemId)
-        {
-            throw new NotImplementedException();
-        }
+        public ShopItem? GetItemById(int ItemId) => _dbContext.ShopItems.SingleOrDefault(p=>p.ShopItemId==ItemId);
+        
 
         public IEnumerable<ShopItem> SearchItems(string searchQuery)
         {
