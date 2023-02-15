@@ -1,10 +1,15 @@
+using Microsoft.EntityFrameworkCore;
 using TheShop.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<ICategoryRepository, MockCategoryRepository>();
-builder.Services.AddScoped<IItemRepository, MockItemRepository>();
 
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IShopItemRepository, ShopItemRepository>();
+builder.Services.AddDbContext<TheShopDBContext>(options => {
+    options.UseSqlServer(
+        builder.Configuration["ConnectionStrings:TheShopDbContextConnection"]);
+});
 
 var app = builder.Build();
 
@@ -17,5 +22,5 @@ if (app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.MapDefaultControllerRoute();
-
+DbInitializer.Seed(app);
 app.Run();

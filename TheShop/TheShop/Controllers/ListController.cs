@@ -6,10 +6,10 @@ namespace TheShop.Controllers
 {
     public class ItemController : Controller
     {
-        private readonly IItemRepository _itemRepository;
+        private readonly IShopItemRepository _itemRepository;
         private readonly ICategoryRepository _categoryRepository;
 
-        public ItemController(IItemRepository pieRepository, ICategoryRepository categoryRepository)
+        public ItemController(IShopItemRepository pieRepository, ICategoryRepository categoryRepository)
         {
             _itemRepository = pieRepository;
             _categoryRepository = categoryRepository;
@@ -21,7 +21,7 @@ namespace TheShop.Controllers
 
             //return View(_pieRepository.AllPies);
 
-            ItemListViewModel piesListViewModel = new ItemListViewModel(_itemRepository.AllItems, "Cheese cakes");
+            ItemListViewModel piesListViewModel = new ItemListViewModel(_itemRepository.AllShopItems, "Cheese cakes");
             return View(piesListViewModel);
         }
     }
