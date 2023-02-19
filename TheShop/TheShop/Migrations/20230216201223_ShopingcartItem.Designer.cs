@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheShop.Models;
 
@@ -10,9 +11,11 @@ using TheShop.Models;
 namespace TheShop.Migrations
 {
     [DbContext(typeof(TheShopDBContext))]
-    partial class TheShopDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230216201223_ShopingcartItem")]
+    partial class ShopingcartItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,28 +90,28 @@ namespace TheShop.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("TheShop.Models.ShoppingCartItem", b =>
+            modelBuilder.Entity("TheShop.Models.ShopingCartItem", b =>
                 {
-                    b.Property<int>("ShoppingCartItemId")
+                    b.Property<int>("ShopingCartItemId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShoppingCartItemId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShopingCartItemId"));
 
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductId")
+                    b.Property<int>("ShopItemProductId")
                         .HasColumnType("int");
 
                     b.Property<string>("ShoppingCartId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ShoppingCartItemId");
+                    b.HasKey("ShopingCartItemId");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ShopItemProductId");
 
-                    b.ToTable("ShoppingCartItems");
+                    b.ToTable("ShopingCartItems");
                 });
 
             modelBuilder.Entity("TheShop.Models.Product", b =>
@@ -122,15 +125,15 @@ namespace TheShop.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("TheShop.Models.ShoppingCartItem", b =>
+            modelBuilder.Entity("TheShop.Models.ShopingCartItem", b =>
                 {
-                    b.HasOne("TheShop.Models.Product", "Product")
+                    b.HasOne("TheShop.Models.Product", "ShopItem")
                         .WithMany()
-                        .HasForeignKey("ProductId")
+                        .HasForeignKey("ShopItemProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Product");
+                    b.Navigation("ShopItem");
                 });
 
             modelBuilder.Entity("TheShop.Models.Category", b =>

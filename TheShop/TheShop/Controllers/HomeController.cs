@@ -6,9 +6,9 @@ namespace TheShop.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IShopItemRepository _shopRepository;
+        private readonly IProductRepository _shopRepository;
 
-        public HomeController(IShopItemRepository pieRepository)
+        public HomeController(IProductRepository pieRepository)
         {
             _shopRepository = pieRepository;
         }

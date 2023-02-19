@@ -4,11 +4,11 @@ namespace TheShop.ViewModels
 {
     public class HomeViewModel
     {
-        public IEnumerable<ShopItem> ShopItemOfTheWeek { get; }
+        public IEnumerable<Product> ProductOfTheWeek { get; }
 
-        public HomeViewModel(IEnumerable<ShopItem> shopItemOfTheWeek)
+        public HomeViewModel(IEnumerable<Product> productOfTheWeek)
         {
-            ShopItemOfTheWeek = shopItemOfTheWeek;
+            ProductOfTheWeek = productOfTheWeek;
         }
     }
 }

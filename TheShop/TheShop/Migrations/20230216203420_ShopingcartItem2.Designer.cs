@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheShop.Models;
 
@@ -10,9 +11,11 @@ using TheShop.Models;
 namespace TheShop.Migrations
 {
     [DbContext(typeof(TheShopDBContext))]
-    partial class TheShopDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230216203420_ShopingcartItem2")]
+    partial class ShopingcartItem2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -98,7 +101,7 @@ namespace TheShop.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductId")
+                    b.Property<int>("ShopItemProductId")
                         .HasColumnType("int");
 
                     b.Property<string>("ShoppingCartId")
@@ -106,7 +109,7 @@ namespace TheShop.Migrations
 
                     b.HasKey("ShoppingCartItemId");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ShopItemProductId");
 
                     b.ToTable("ShoppingCartItems");
                 });
@@ -124,13 +127,13 @@ namespace TheShop.Migrations
 
             modelBuilder.Entity("TheShop.Models.ShoppingCartItem", b =>
                 {
-                    b.HasOne("TheShop.Models.Product", "Product")
+                    b.HasOne("TheShop.Models.Product", "ShopItem")
                         .WithMany()
-                        .HasForeignKey("ProductId")
+                        .HasForeignKey("ShopItemProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Product");
+                    b.Navigation("ShopItem");
                 });
 
             modelBuilder.Entity("TheShop.Models.Category", b =>

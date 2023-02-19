@@ -1,8 +1,8 @@
 ﻿namespace TheShop.Models
 {
-    public class ShopItem
+    public class Product
     {
-        public int ShopItemId { get; set; }
+        public int ProductId { get; set; }
         public string Name { get; set; } = string.Empty;
         public string? ShortDescription { get; set; }
         public string? LongDescription { get; set; }

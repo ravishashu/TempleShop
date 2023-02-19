@@ -4,12 +4,12 @@ using TheShop.ViewModels;
 
 namespace TheShop.Controllers
 {
-    public class ShopItemController : Controller
+    public class ProductController : Controller
     {
-        private readonly IShopItemRepository _itemRepository;
+        private readonly IProductRepository _itemRepository;
         private readonly ICategoryRepository _categoryRepository;
 
-        public ShopItemController(IShopItemRepository pieRepository, ICategoryRepository categoryRepository)
+        public ProductController(IProductRepository pieRepository, ICategoryRepository categoryRepository)
         {
             _itemRepository = pieRepository;
             _categoryRepository = categoryRepository;
@@ -21,7 +21,7 @@ namespace TheShop.Controllers
 
             //return View(_pieRepository.AllPies);
 
-            ItemListViewModel piesListViewModel = new ItemListViewModel(_itemRepository.AllShopItems, "Cheese cakes");
+            ItemListViewModel piesListViewModel = new ItemListViewModel(_itemRepository.AllProducts, "Cheese cakes");
             return View(piesListViewModel);
         }
 

@@ -4,10 +4,10 @@ namespace TheShop.ViewModels
 {
     public class ItemListViewModel
     {
-        public IEnumerable<ShopItem> Items { get; }
+        public IEnumerable<Product> Items { get; }
         public string? CurrentCategory { get; }
 
-        public ItemListViewModel(IEnumerable<ShopItem> items, string? currentCategory)
+        public ItemListViewModel(IEnumerable<Product> items, string? currentCategory)
         {
             Items = items;
             CurrentCategory = currentCategory;
