@@ -15,14 +15,34 @@ namespace TheShop.Controllers
             _categoryRepository = categoryRepository;
         }
 
-        public IActionResult List()
+        //public IActionResult List()
+        //{
+        //    //ViewBag.CurrentCategory = "Cheese cakes";
+
+        //    //return View(_pieRepository.AllProducts);
+
+        //    ItemListViewModel piesListViewModel = new ItemListViewModel(_itemRepository.AllProducts, "Cheese cakes");
+        //    return View(piesListViewModel);
+        //}
+
+        public ViewResult List(string category)
         {
-            //ViewBag.CurrentCategory = "Cheese cakes";
+            IEnumerable<Product> pies;
+            string? currentCategory;
 
-            //return View(_pieRepository.AllPies);
+            if (string.IsNullOrEmpty(category))
+            {
+                pies = _itemRepository.AllProducts.OrderBy(p => p.ProductId);
+                currentCategory = "All Products";
+            }
+            else
+            {
+                pies = _itemRepository.AllProducts.Where(p => p.Category.CategoryName == category)
+                    .OrderBy(p => p.ProductId);
+                currentCategory = _categoryRepository.AllCategories.FirstOrDefault(c => c.CategoryName == category)?.CategoryName;
+            }
 
-            ItemListViewModel piesListViewModel = new ItemListViewModel(_itemRepository.AllProducts, "Cheese cakes");
-            return View(piesListViewModel);
+            return View(new ProductListViewModel(pies, currentCategory));
         }
 
         public IActionResult Details(int id)
