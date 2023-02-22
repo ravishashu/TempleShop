@@ -4,12 +4,12 @@ namespace TheShop.ViewModels
 {
     public class ProductListViewModel
     {
-        public IEnumerable<Product> Items { get; }
+        public IEnumerable<Product> Product { get; }
         public string? CurrentCategory { get; }
 
-        public ProductListViewModel(IEnumerable<Product> items, string? currentCategory)
+        public ProductListViewModel(IEnumerable<Product> Product, string? currentCategory)
         {
-            Items = items;
+            this.Product = Product;
             CurrentCategory = currentCategory;
         }
     }

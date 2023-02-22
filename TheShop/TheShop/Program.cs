@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using TheShop.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
 
 
@@ -29,5 +30,6 @@ if (app.Environment.IsDevelopment())
 app.UseStaticFiles();
 app.UseSession();
 app.MapDefaultControllerRoute();
+app.MapRazorPages();
 DbInitializer.Seed(app);
 app.Run();
