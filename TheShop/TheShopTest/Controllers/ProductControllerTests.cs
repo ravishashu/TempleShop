@@ -16,6 +16,7 @@ namespace TheShopTest.Controllers
         [Fact]
         public void List_EmptyCategory_ReturnsAllProducts()
         {
+            //arrange
             var mockCategoryRepository = RepositoryMocks.GetCategoryRepository();
             var mockProductRepository = RepositoryMocks.GetProductRepository();
 
