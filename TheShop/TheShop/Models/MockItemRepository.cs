@@ -23,7 +23,7 @@
 
         public Product? GetItemById(int ItemId) => AllProducts.FirstOrDefault(p => p.ProductId == ItemId);
 
-        public IEnumerable<Product> SearchItems(string searchQuery)
+        public IEnumerable<Product> SearchProducts(string searchQuery)
         {
             throw new NotImplementedException();
         }

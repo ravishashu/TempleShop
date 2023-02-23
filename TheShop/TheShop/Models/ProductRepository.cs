@@ -17,9 +17,9 @@ namespace TheShop.Models
         public Product? GetItemById(int ItemId) => _dbContext.Products.SingleOrDefault(p=>p.ProductId==ItemId);
         
 
-        public IEnumerable<Product> SearchItems(string searchQuery)
+        public IEnumerable<Product> SearchProducts(string searchQuery)
         {
-            throw new NotImplementedException();
+            return _dbContext.Products.Where(p => p.Name.Contains(searchQuery));
         }
     }
 }

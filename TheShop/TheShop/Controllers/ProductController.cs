@@ -53,5 +53,11 @@ namespace TheShop.Controllers
 
             return View(item);
         }
+
+        public IActionResult Search()
+        {
+            return View();
+        }
+
     }
 }
