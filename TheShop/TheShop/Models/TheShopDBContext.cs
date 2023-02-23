@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace TheShop.Models
 {
-    public class TheShopDBContext: DbContext
+    public class TheShopDBContext: IdentityDbContext
     {
         public TheShopDBContext(DbContextOptions<TheShopDBContext> options) : base(options)
         {
