@@ -7,9 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Identity\Pages\Administrator\" />
     <Folder Include="Pages\App\" />
+    <Folder Include="Views\NewFolder\" />
+    <Folder Include="Views\Shared\Components\Dashboard\" />
     <Folder Include="wwwroot\Images\" />
-    <Folder Include="wwwroot\lib\" />
   </ItemGroup>
 
   <ItemGroup>

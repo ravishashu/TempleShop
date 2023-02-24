@@ -8,8 +8,7 @@
     <script src="~/lib/jquery/jquery.js"></script>
     <script src="~/lib/jquery-validate/jquery.validate.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-    @*<script src="~/lib/bootstrap/js/bootstrap.js"></script>*@
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
     <link href="~/css/site.css" rel="stylesheet" />
     <base href="/" />
 </head>
@@ -32,6 +31,7 @@
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <vc:category-menu></vc:category-menu>
+                            <partial name="_Dashboard" />
                              <li class="nav-item">
                                 <a asp-controller="Contact" asp-action="Index" class="nav-link">Contact</a>
                             </li>
@@ -45,6 +45,7 @@
                                 </a>
                             </li>
                         </ul>
+                        
                         <partial name="_LoginPartial" />
                         <vc:shopping-cart-summary></vc:shopping-cart-summary>
                     </div>
