@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace TheShop.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Admin")]
     public class AppRolesController : Controller
     {
         private readonly RoleManager<IdentityRole> _roleManager;

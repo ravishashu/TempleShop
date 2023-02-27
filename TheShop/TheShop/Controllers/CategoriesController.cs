@@ -10,7 +10,7 @@ using TheShop.Models;
 
 namespace TheShop.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "PRODUCT MANAGER")]
     public class CategoriesController : Controller
     {
         private readonly TheShopDBContext _context;
