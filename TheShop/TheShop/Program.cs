@@ -30,7 +30,8 @@ builder.Services.AddDbContext<TheShopDBContext>(options => {
         builder.Configuration["ConnectionStrings:TheShopDbContextConnection"]);
 });
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<TheShopDBContext>();
 
 var app = builder.Build();
