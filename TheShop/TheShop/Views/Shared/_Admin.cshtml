@@ -1,0 +1,27 @@
+﻿<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle"
+       data-toggle="dropdown"
+       href="#"
+       role="button"
+       data-bs-toggle="dropdown"
+       id="nav-dropdown"
+       aria-expanded="false"
+       target="_self">
+        Admin
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-dropdown">
+        <li class="nav-item">
+        <a class="nav-link" id="register" asp-area="Identity" asp-page="/Account/RegisterRole">Employee</a>
+    </li>
+        <li class="nav-item">
+            <a asp-controller="User" asp-action="Index" class="nav-link">
+                Users
+            </a>
+        </li>
+        <li class="nav-item">
+            <a asp-controller="AppRoles" asp-action="Index" class="nav-link">Roles</a>
+        </li> 
+
+
+    </ul>
+</li>

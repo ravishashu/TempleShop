@@ -2,6 +2,7 @@
 using TheShop.Models;
 using TheShop.ViewModels;
 
+
 namespace TheShop.Controllers
 {
     public class ProductController : Controller
