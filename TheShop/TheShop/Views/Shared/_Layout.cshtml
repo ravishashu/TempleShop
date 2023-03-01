@@ -32,6 +32,11 @@
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <vc:category-menu></vc:category-menu>
                             <partial name="_Dashboard" />
+                              @if (User.IsInRole("Admin"))
+                {
+                    <partial name="_Admin" />
+                }
+                            
                              <li class="nav-item">
                                 <a asp-controller="Contact" asp-action="Index" class="nav-link">Contact</a>
                             </li>

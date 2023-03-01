@@ -24,7 +24,7 @@ using TheShop.Models;
 
 namespace TheShop.Areas.Identity.Pages.Account
 {
-    public class RegisterModel : PageModel
+    public class RegisterRoleModel : PageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
@@ -33,7 +33,7 @@ namespace TheShop.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly RoleManager<IdentityRole> _roleManager;
-        public RegisterModel(
+        public RegisterRoleModel(
             UserManager<IdentityUser> userManager,
             IUserStore<IdentityUser> userStore,
             SignInManager<IdentityUser> signInManager,
@@ -111,10 +111,10 @@ namespace TheShop.Areas.Identity.Pages.Account
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
 
-            //[Required]
+            [Required]
             public string? Role { get; set; }
 
-            //[ValidateNever]
+            [ValidateNever]
             public IEnumerable<SelectListItem> RolesList { get; set; }
         }
 
