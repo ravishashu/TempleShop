@@ -19,17 +19,13 @@ namespace TheShop.Controllers
             _signInManager = signInManager;
         }
 
-        public IActionResult Index()
-        {
-            var users = _userRepository.GetUsers();
-            return View(users);
-        }
-
         [HttpGet]
         public IActionResult Index(string searchString)
         {
-            var users = _userRepository.GetUsers(searchString);
-            return View(users);
+            if(string.IsNullOrEmpty(searchString)) 
+                return View(_userRepository.GetUsers());
+            else 
+                return View(_userRepository.GetUsers(searchString));
         }
         public async Task<IActionResult> Edit(string id)
         {

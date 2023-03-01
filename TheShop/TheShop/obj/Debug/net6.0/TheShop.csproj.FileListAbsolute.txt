@@ -274,3 +274,5 @@ C:\learning\TheShop\TheShop\TheShop\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swag
 C:\learning\TheShop\TheShop\TheShop\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\learning\TheShop\TheShop\TheShop\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\learning\TheShop\TheShop\TheShop\obj\Debug\net6.0\TheShop.csproj.AssemblyReference.cache
+C:\learning\TheShop\TheShop\TheShop\bin\Debug\net6.0\PagedList.dll
+C:\learning\TheShop\TheShop\TheShop\bin\Debug\net6.0\PagedList.Mvc.dll

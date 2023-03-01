@@ -10,7 +10,7 @@ using TheShop.Models;
 
 namespace TheShop.Controllers
 {
-    [Authorize(Roles = "PRODUCT MANAGER")]
+    [Authorize(Roles = "Product Manager")]
     public class ProductsController : Controller
     {
         private readonly TheShopDBContext _context;
